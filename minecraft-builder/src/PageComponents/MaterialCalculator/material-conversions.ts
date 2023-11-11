@@ -1,4 +1,13 @@
-export const conversions = {
+export type Conversion = {
+input: string;
+inputAmount: number;
+output: string;
+outputAmount: number;
+};
+type Conversions = {
+  [key: string]: Conversion;
+}
+export const conversions: Conversions = {
   "Wood logs to Wood planks": {
     input: "Wood logs",
     inputAmount: 1,
