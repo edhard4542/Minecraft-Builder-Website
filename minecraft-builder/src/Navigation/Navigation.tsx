@@ -2,69 +2,96 @@ import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Link } from "react-router-dom";
+import InputBase from "@mui/material/InputBase";
+import SearchIcon from "@mui/icons-material/Search";
+import { styled } from "@mui/system";
 
 const Navigation = () => {
+  const NavBar = styled("div")({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    backgroundColor: "#F9B795",
+    padding: "8px 16px",
+  });
+
+  const SearchContainer = styled("div")({
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: "4px",
+    marginLeft: "auto",
+  });
+
+  const SearchInput = styled(InputBase)({
+    marginLeft: "4px",
+    flex: 1,
+  });
+
   return (
-    <div
-      style={{
-        backgroundColor: "#F9B795", // Set the background color for the entire navigation bar
-        padding: "0 16px", // Optional: Add padding to the navigation bar
-      }}
-    >
+    <NavBar>
       <Tabs
-        value={false} // You can set this value according to the current route
+        value={false}
         indicatorColor="primary"
         textColor="primary"
         centered
         sx={{
           "& .MuiTab-root": {
             textTransform: "none",
-            color: "#061E7F", // Text color for unselected tabs
-            fontSize: "16px", // Font size for unselected tabs
+            color: "#061E7F",
+            fontSize: "16px",
           },
           "& .Mui-selected": {
-            color: "#fff", // Text color when selected
-            backgroundColor: "#061E7F", // Background color when selected
+            color: "#fff",
+            backgroundColor: "#061E7F",
           },
         }}
       >
         <Tab
           label={
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
               Home
             </Link>
           }
         />
         <Tab
           label={
-            <Link to="/pallet-generator" style={{ textDecoration: "none" }}>
+            <Link
+              to="/pallet-generator"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               Pallet generator
             </Link>
           }
         />
         <Tab
           label={
-            <Link to="/shape-generator" style={{ textDecoration: "none" }}>
+            <Link
+              to="/shape-generator"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               Shape generator
             </Link>
           }
         />
         <Tab
           label={
-            <Link to="/floor-generator" style={{ textDecoration: "none" }}>
-              Floor generator
-            </Link>
-          }
-        />
-        <Tab
-          label={
-            <Link to="/material-calculator" style={{ textDecoration: "none" }}>
+            <Link
+              to="/material-calculator"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               Material Calculator
             </Link>
           }
         />
       </Tabs>
-    </div>
+
+      {/* Search bar */}
+      <SearchContainer>
+        <SearchIcon />
+        <SearchInput placeholder="Search..." />
+      </SearchContainer>
+    </NavBar>
   );
 };
 
