@@ -18,10 +18,15 @@ export const MaterialCalculator: FC = () => {
     outputAmount: 0,
   });
   const [userInput, setUserInput] = useState<number | null>(null);
+
   const conversionKeys: string[] = Object.keys(conversions);
+
   const handleConversionChange = (event: SelectChangeEvent): void => {
     const selectedValue = event.target.value as string;
     setSelectedConversion(selectedValue);
+    if (selectedValue.length < 1) {
+      setUserInput(null);
+    }
     const conversion = conversions[selectedValue];
     if (conversion) {
       setConversionDetails(conversion);
@@ -29,15 +34,17 @@ export const MaterialCalculator: FC = () => {
       setInputMaterialLabel(`Input material amount for ${inputName}`);
     }
   };
-  console.log(conversions, "conversions");
+
+  // console.log(conversions, "conversions");
   console.log(selectedConversion, "selectedConversion");
-  console.log(conversionKeys, "conversionKeys");
-  console.log(conversionDetails, "conversionDetails");
-  console.log(conversionDetails.inputAmount, "conversionDetails");
+  // console.log(conversionKeys, "conversionKeys");
+  // console.log(conversionDetails, "conversionDetails");
+  // console.log(conversionDetails.inputAmount, "conversionDetails");
+  console.log(userInput, "userInput");
   const handleInputChange = (inputValue: string): void => {
     const inputValueParsed = parseFloat(inputValue);
-// && = AND
-// || = OR
+    // && = AND
+    // || = OR
     if (
       isNaN(inputValueParsed) || // is not a number
       inputValueParsed < 0 || // is less than zero
@@ -65,7 +72,16 @@ export const MaterialCalculator: FC = () => {
       conversionDetails.outputAmount;
     const remainder = userInput % conversionDetails.inputAmount;
 
-    if (remainder > 0) {
+    if (totalOutput > 64) {
+      const stacks = Math.floor(totalOutput / 64);
+      const stackRemainder = totalOutput % 64;
+
+      if (stackRemainder > 0) {
+        return `${stacks} stacks and ${stackRemainder} ${conversionDetails.output} with ${remainder} ${conversionDetails.input} remaining`;
+      } else {
+        return `${stacks} stacks`;
+      }
+    } else if (remainder > 0) {
       return `${totalOutput} ${conversionDetails.output} with ${remainder} ${conversionDetails.input} remaining`;
     } else {
       return `${totalOutput} ${conversionDetails.output}`;
@@ -94,21 +110,27 @@ export const MaterialCalculator: FC = () => {
         </Select>
         {selectedConversion && <p>Selected Conversion: {selectedConversion}</p>}
       </div>
-      <TextField
-        disabled={selectedConversion.length < 1}
-        id="outlined-number"
-        label={inputMaterialLabel}
-        type="number"
-        onChange={(event: ChangeEvent<HTMLInputElement>) =>
-          handleInputChange(event.target.value)
-        }
-        inputProps={{
-          min: selectedConversion ? conversionDetails.inputAmount : 0,
-        }}
-        error={inputValidationMessage.length > 0}
-        helperText={inputValidationMessage.length ? inputValidationMessage : ""}
-      />
-      {userInput !== null && <p>{calculateOutput()}</p>}
+      {selectedConversion.length > 0 ? (
+        <TextField
+          sx={{ width: "45%" }}
+          id="outlined-number"
+          label={inputMaterialLabel}
+          type="number"
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            handleInputChange(event.target.value)
+          }
+          inputProps={{
+            min: selectedConversion ? conversionDetails.inputAmount : 0,
+          }}
+          error={inputValidationMessage.length > 0}
+          helperText={
+            inputValidationMessage.length ? inputValidationMessage : ""
+          }
+        />
+      ) : null}
+      {userInput !== null && selectedConversion.length > 0 ? (
+        <p>{calculateOutput()}</p>
+      ) : null}
     </>
   );
 };

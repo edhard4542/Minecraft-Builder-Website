@@ -1,8 +1,10 @@
 import React from "react";
-import image1 from "../src/assets/dascity.jpg";
-import image2 from "../src/assets/hut.jpg";
-import image3 from "../src/assets/enchant.jpg";
-import image4 from "../src/assets/bookshelves.jpg";
+import image1 from "../src/assets/dascitynew.jpg";
+import image2 from "../src/assets/chestroom.jpg";
+import image3 from "../src/assets/firetruck.jpg";
+import image4 from "../src/assets/moon.jpg";
+import image5 from "../src/assets/clift.jpg";
+import image6 from "../src/assets/floor.jpg";
 import { Carousel } from "react-responsive-carousel";
 import { Box } from "@mui/material";
 import Navigation from "./Navigation/Navigation";
@@ -21,6 +23,7 @@ export const Home = () => {
 
   return (
     <div>
+      <Navigation />
       {/* Header */}
       <Box sx={headerStyle}>
         <h1>CraftAssist</h1>
@@ -41,10 +44,14 @@ export const Home = () => {
           other builders like me who have trouble making decisions.
         </p>
       </div>
-      <Navigation />
 
       {/* carousel */}
-      <Carousel autoPlay={true} interval={3000} infiniteLoop={true}>
+      <Carousel
+        autoPlay={true}
+        interval={3000}
+        infiniteLoop={true}
+        stopOnHover={false}
+      >
         <div>
           <img src={image1} alt="Image 1" />
           <p className="legend">Image 1</p>
@@ -61,7 +68,16 @@ export const Home = () => {
           <img src={image4} alt="Image 4" />
           <p className="legend">Image 4</p>
         </div>
+        <div>
+          <img src={image5} alt="Image 5" />
+          <p className="legend">Image 4</p>
+        </div>
+        <div>
+          <img src={image6} alt="Image 6" />
+          <p className="legend">Image 4</p>
+        </div>
       </Carousel>
+      
     </div>
   );
-};
+}; //
