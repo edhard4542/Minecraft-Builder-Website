@@ -13,7 +13,9 @@ app.use(express.json());
 
 app.use("/api/users", usersRoute);
 
-app.get("");
+// app.use("/api/add-user", userRoute);
+
+console.log("trying to hit users endpoint...");
 
 const PORT = 5000;
 app.listen(PORT, () => {

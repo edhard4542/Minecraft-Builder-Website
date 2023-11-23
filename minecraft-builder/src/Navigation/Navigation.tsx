@@ -1,6 +1,5 @@
-import React from "react";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
@@ -60,6 +59,13 @@ const Navigation = () => {
           label={
             <Link to="/material-calculator" style={{ textDecoration: "none" }}>
               Material Calculator
+            </Link>
+          }
+        />
+        <Tab
+          label={
+            <Link to="/signed-up-users" style={{ textDecoration: "none" }}>
+              Signed Up Users
             </Link>
           }
         />
