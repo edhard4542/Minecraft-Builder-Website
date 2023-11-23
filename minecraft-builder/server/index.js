@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const usersRoute = require("./api/users");
+const userRoute = require("./api/user");
 const { connectDB } = require("./database/db");
 
 const app = express();
@@ -13,7 +14,7 @@ app.use(express.json());
 
 app.use("/api/users", usersRoute);
 
-// app.use("/api/add-user", userRoute);
+app.use("/api/add-user", userRoute);
 
 console.log("trying to hit users endpoint...");
 

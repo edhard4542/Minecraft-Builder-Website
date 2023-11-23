@@ -8,14 +8,45 @@ export const SignedUpUsers = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
-    console.log("Submitted:", { email, firstName, lastName });
 
-    
+    // Construct the user data object
+    const userData = {
+      email,
+      firstName,
+      lastName,
+    };
 
-    
-    // Here, you would typically handle the form submission, like sending it to a server
+    try {
+      // Send a POST request to the server endpoint
+      const response = await fetch("http://localhost:5000/api/add-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData), // Convert the userData object into a JSON string
+      });
+
+      console.log(JSON.stringify(userData), "JSON.stringify(userData)");
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json(); // Get the JSON from the response, if needed
+      console.log("User created:", result);
+
+      // Optionally, you can clear the input fields after successful submission
+      setEmail("");
+      setFirstName("");
+      setLastName("");
+
+      // Optionally, refresh the users list
+      getUsers();
+    } catch (error) {
+      console.error("There was a problem with the POST request:", error);
+    }
   };
 
   const getUsers = async () => {
