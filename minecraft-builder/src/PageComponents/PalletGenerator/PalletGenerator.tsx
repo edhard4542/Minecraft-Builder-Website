@@ -1,7 +1,8 @@
-import React, { useState, ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
+import FooterPage from "../../Footer/FooterPage";
 import Navigation from "../../Navigation/Navigation";
-import image1 from "../../assets/villageHouse.jpg";
 import image2 from "../../assets/prettyfloor.jpg";
+import image1 from "../../assets/villageHouse.jpg";
 
 export const PalletGenerator = () => {
   const [selectedValue, setSelectedValue] = useState(3);
@@ -64,6 +65,7 @@ export const PalletGenerator = () => {
           </option>
         ))}
       </select>
+      <FooterPage />
     </div>
   );
 };

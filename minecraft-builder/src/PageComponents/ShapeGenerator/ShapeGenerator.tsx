@@ -1,5 +1,5 @@
+import FooterPage from "../../Footer/FooterPage";
 import Navigation from "../../Navigation/Navigation";
-import image1 from "../assets/circle_blueprint.jpg";
 
 export const ShapeGenerator = () => {
   return (
@@ -14,8 +14,7 @@ export const ShapeGenerator = () => {
           design.
         </p>
       </div>
+      <FooterPage />
     </div>
   );
 };
-
-  

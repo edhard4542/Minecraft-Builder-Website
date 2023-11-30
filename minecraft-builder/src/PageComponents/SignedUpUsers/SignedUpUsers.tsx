@@ -1,138 +1,225 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+import FooterPage from "../../Footer/FooterPage";
 import Navigation from "../../Navigation/Navigation";
+import { DynamicField, User } from "../../types";
+import { useUserData, useUserState } from "./hooks";
+import { handleDynamicFieldChange, removeDynamicField } from "./utils";
 
 export const SignedUpUsers = () => {
-  const [users, setUsers] = useState([]);
-
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
-
-    // Construct the user data object
-    const userData = {
-      email,
-      firstName,
-      lastName,
-    };
-
-    try {
-      // Send a POST request to the server endpoint
-      const response = await fetch("http://localhost:5000/api/add-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData), // Convert the userData object into a JSON string
-      });
-
-      console.log(JSON.stringify(userData), "JSON.stringify(userData)");
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json(); // Get the JSON from the response, if needed
-      console.log("User created:", result);
-
-      // Optionally, you can clear the input fields after successful submission
-      setEmail("");
-      setFirstName("");
-      setLastName("");
-
-      // Optionally, refresh the users list
-      getUsers();
-    } catch (error) {
-      console.error("There was a problem with the POST request:", error);
-    }
-  };
-
-  const getUsers = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/users", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const fetchedUsers = await response.json();
-      setUsers(fetchedUsers);
-    } catch (error) {
-      console.error(
-        "There has been a problem with your fetch operation:",
-        error
-      );
-    }
-  };
+  const { users, setUsers, getUsers, addUser, updateUser } = useUserData();
+  const [editingUser, setEditingUser] = useState<User | null>(null);
+  const email = useUserState("");
+  const firstName = useUserState("");
+  const lastName = useUserState("");
+  const phoneNumber = useUserState("");
+  const birthday = useUserState("");
+  const [dynamicFields, setDynamicFields] = useState<DynamicField[]>([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editUserId, setEditUserId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!users.length) {
       getUsers();
     }
-  }, [users.length]); // Added dependency array
+  }, []);
+
+  const handleEditClick = (user: User) => {
+    setEditingUser({ ...user }); // Clone the user object for editing
+    setEditUserId(user.id);
+    setIsEditing(true);
+  };
+
+  const handleEditSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (editUserId && editingUser) {
+      await updateUser(editUserId, editingUser);
+      // Reset state
+      setEditUserId(null);
+      setIsEditing(false);
+      setEditingUser(null);
+    }
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await addUser({
+      email: email.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+    });
+  };
+
+  const onAddField = () => {
+    if (editingUser) {
+      const newField: DynamicField = {
+        id: Date.now(),
+        name: "New Field",
+        value: "",
+        type: "text",
+      };
+      setEditingUser({
+        ...editingUser,
+        dynamicFields: [...(editingUser.dynamicFields || []), newField],
+      });
+    }
+  };
+
+  const onRemoveField = (id: number) => {
+    removeDynamicField(dynamicFields, setDynamicFields, id);
+  };
+
+  const onDynamicFieldChange = (id: number, value: string) => {
+    handleDynamicFieldChange(dynamicFields, setDynamicFields, id, value);
+  };
 
   return (
     <div className="user-list-container">
       <Navigation />
       <ul className="user-list">
-        {users.map(
-          (
-            user: { firstName: string; lastName: string; email: string },
-            index
-          ) => (
-            <li key={index} className="user-list-item">
+        {users.map((user: User, index) => (
+          <li
+            key={`${user.id.toString()} ${index} `}
+            className="user-list-item"
+          >
+            <div>
+              <strong>User ID:</strong> {user.id.toString()}
+            </div>
+            <div>
+              <strong>First Name:</strong> {user.firstName}
+            </div>
+            <div>
+              <strong>Last Name:</strong> {user.lastName}
+            </div>
+            <div>
+              <strong>Email:</strong> {user.email}
+            </div>
+            {user.phoneNumber && user.phoneNumber.length && (
               <div>
-                <strong>First Name:</strong> {user.firstName}
+                <strong>Phone Number:</strong> {user.phoneNumber}
               </div>
+            )}
+            {user.birthday && user.birthday.length && (
               <div>
-                <strong>Last Name:</strong> {user.lastName}
+                <strong>Birthday:</strong> {user.birthday}
               </div>
-              <div>
-                <strong>Email:</strong> {user.email}
+            )}
+            {dynamicFields.map((field) => (
+              <div key={field.id}>
+                <input
+                  type={field.type}
+                  placeholder={field.name}
+                  value={field.value}
+                  onChange={(e) =>
+                    onDynamicFieldChange(field.id, e.target.value)
+                  }
+                />
+                {/* <button type="button" onClick={() => onRemoveField(field.id)}>
+                  Remove Field
+                </button> */}
               </div>
-            </li>
-          )
-        )}
+            ))}
+            <button onClick={() => handleEditClick(user)}>Edit</button>
+          </li>
+        ))}
       </ul>
+
+      {isEditing && editingUser && (
+        <div className="edit-user-modal">
+          <form onSubmit={handleEditSubmit}>
+            <div className="input-group">
+              <input
+                type="email"
+                placeholder="Email Address"
+                value={email.value}
+                onChange={email.handleChange}
+                required
+              />
+              <input
+                type="text"
+                placeholder="First Name"
+                value={firstName.value}
+                onChange={firstName.handleChange}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastName.value}
+                onChange={lastName.handleChange}
+                required
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                value={phoneNumber.value}
+                onChange={phoneNumber.handleChange}
+              />
+              <input
+                type="date"
+                placeholder="Birthday"
+                value={birthday.value}
+                onChange={birthday.handleChange}
+              />
+              {editingUser &&
+                editingUser.dynamicFields?.map((field, index) => (
+                  <input
+                    key={field.id}
+                    type={field.type}
+                    placeholder={field.name}
+                    value={field.value}
+                    onChange={(e) => {
+                      if (editingUser && editingUser.dynamicFields) {
+                        const updatedFields = [...editingUser.dynamicFields];
+                        updatedFields[index] = {
+                          ...field,
+                          value: e.target.value,
+                        };
+                        setEditingUser({
+                          ...editingUser,
+                          dynamicFields: updatedFields,
+                        });
+                      }
+                    }}
+                  />
+                ))}
+              <button type="button" onClick={onAddField}>
+                Add Field
+              </button>
+              <button type="submit">Update User</button>
+              <button onClick={() => setIsEditing(false)}>Cancel</button>
+            </div>
+          </form>
+        </div>
+      )}
 
       <div className="signup-container">
         <h2>Sign up for more content</h2>
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <input
-              type="email"
-              placeholder="Email Address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button type="submit">Submit</button>
-          </div>
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </div>
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email.value}
+            onChange={email.handleChange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="First Name"
+            value={firstName.value}
+            onChange={firstName.handleChange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={lastName.value}
+            onChange={lastName.handleChange}
+            required
+          />
+          <button type="submit">Submit</button>
         </form>
       </div>
+      <FooterPage />
     </div>
   );
 };
