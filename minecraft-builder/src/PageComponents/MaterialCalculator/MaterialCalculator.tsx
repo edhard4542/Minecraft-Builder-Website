@@ -1,10 +1,11 @@
-import React, { ChangeEvent, FC, useState } from "react";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { ChangeEvent, FC, useState } from "react";
 
+import { TextField } from "@mui/material";
+import FooterPage from "../../Footer/FooterPage";
 import Navigation from "../../Navigation/Navigation";
 import { conversions } from "./material-conversions";
-import { TextField } from "@mui/material";
 
 export const MaterialCalculator: FC = () => {
   const [selectedConversion, setSelectedConversion] = useState<string>("");
@@ -131,6 +132,7 @@ export const MaterialCalculator: FC = () => {
       {userInput !== null && selectedConversion.length > 0 ? (
         <p>{calculateOutput()}</p>
       ) : null}
+      <FooterPage />
     </>
   );
 };

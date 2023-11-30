@@ -1,10 +1,9 @@
-import React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { Link } from "react-router-dom";
-import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 import { styled } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const NavBar = styled("div")({
@@ -81,6 +80,13 @@ const Navigation = () => {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               Material Calculator
+            </Link>
+          }
+        />
+        <Tab
+          label={
+            <Link to="/signed-up-users" style={{ textDecoration: "none" }}>
+              Signed Up Users
             </Link>
           }
         />

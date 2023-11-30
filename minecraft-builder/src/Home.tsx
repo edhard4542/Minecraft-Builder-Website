@@ -1,14 +1,14 @@
-import React from "react";
-import image1 from "../src/assets/dascitynew.jpg";
-import image2 from "../src/assets/chestroom.jpg";
-import image3 from "../src/assets/firetruck.jpg";
-import image4 from "../src/assets/moon.jpg";
-import image5 from "../src/assets/clift.jpg";
-import image6 from "../src/assets/floor.jpg";
-import { Carousel } from "react-responsive-carousel";
 import { Box } from "@mui/material";
-import Navigation from "./Navigation/Navigation";
+import { Carousel } from "react-responsive-carousel";
+import image2 from "../src/assets/chestroom.jpg";
+import image5 from "../src/assets/clift.jpg";
+import image1 from "../src/assets/dascitynew.jpg";
+import image3 from "../src/assets/firetruck.jpg";
+import image6 from "../src/assets/floor.jpg";
 import backgroundImage from "../src/assets/minecraft_mountains_trees.jpg";
+import image4 from "../src/assets/moon.jpg";
+import FooterPage from "./Footer/FooterPage";
+import Navigation from "./Navigation/Navigation";
 
 export const Home = () => {
   const headerStyle = {
@@ -77,7 +77,7 @@ export const Home = () => {
           <p className="legend">Image 4</p>
         </div>
       </Carousel>
-      
+      <FooterPage />
     </div>
   );
 }; //

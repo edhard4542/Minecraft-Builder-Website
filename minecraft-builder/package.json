@@ -14,6 +14,15 @@
     "@types/node": "^16.18.58",
     "@types/react": "^18.2.27",
     "@types/react-dom": "^18.2.12",
+    "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.1",
+    "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
@@ -23,7 +32,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run start-react\" \"npm run start-server\"",
+    "start-react": "react-scripts start",
+    "start-server": "nodemon server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
