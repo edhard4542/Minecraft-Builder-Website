@@ -72,18 +72,14 @@ export const SignedUpUsers = () => {
     handleDynamicFieldChange(dynamicFields, setDynamicFields, id, value);
   };
 
+  console.log(users, "users");
+
   return (
     <div className="user-list-container">
       <Navigation />
       <ul className="user-list">
         {users.map((user: User, index) => (
-          <li
-            key={`${user.id.toString()} ${index} `}
-            className="user-list-item"
-          >
-            <div>
-              <strong>User ID:</strong> {user.id.toString()}
-            </div>
+          <li key={index} className="user-list-item">
             <div>
               <strong>First Name:</strong> {user.firstName}
             </div>

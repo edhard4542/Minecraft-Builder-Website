@@ -64,7 +64,7 @@ export function useUserData() {
 
   const addUser = async (userData: Omit<User, "id">) => {
     try {
-      const response = await fetch("http://localhost:5000/api/add-user", {
+      const response = await fetch("http://localhost:5000/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
