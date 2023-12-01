@@ -133,6 +133,7 @@ router.post("/", async (req, res) => {
     const newUser = new User(req.body);
     console.log(newUser, "newUser"); // Log the new user instance after it's defined
 
+    // console.log(newUser, "newUser");
     await newUser.save();
     res.status(201).json(newUser);
   } catch (error) {

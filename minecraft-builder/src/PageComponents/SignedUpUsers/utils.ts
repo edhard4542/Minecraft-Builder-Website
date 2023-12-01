@@ -6,7 +6,7 @@ export const addDynamicFieldToUser = (
   userId: string
 ) => {
   const updatedUsers = users.map((user) => {
-    if (user.id === userId) {
+    if (user.userId === userId) {
       const newField: DynamicField = {
         id: Date.now(), // or another method to generate a unique id
         name: "New Field",

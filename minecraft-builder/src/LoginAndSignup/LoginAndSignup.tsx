@@ -45,7 +45,7 @@ export const LoginAndSignup = () => {
   const handleSignup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await addUser({ ...signup, id: new Date().getTime().toString() });
+      await addUser({ ...signup, userId: new Date().getTime().toString() });
 
       // Reset the signup form or handle the success (e.g., redirect)
       setSignup({

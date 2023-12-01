@@ -6,7 +6,7 @@ export interface DynamicField {
 }
 
 export interface User {
-  id: string;
+  userId: string;
   firstName: string;
   lastName: string;
   email: string;

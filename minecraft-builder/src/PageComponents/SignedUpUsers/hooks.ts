@@ -62,7 +62,7 @@ export function useUserData() {
     }
   };
 
-  const addUser = async (userData: Omit<User, "id">) => {
+  const addUser = async (userData: User) => {
     try {
       const response = await fetch("http://localhost:5000/api/users", {
         method: "POST",
@@ -84,6 +84,7 @@ export function useUserData() {
 
   const updateUser = async (userId: string, userData: Partial<User>) => {
     try {
+      console.log(userData, "userData");
       const response = await fetch(
         `http://localhost:5000/api/users/${userId}`,
         {
@@ -105,7 +106,7 @@ export function useUserData() {
     }
   };
 
- const deleteUser = async (userEmail: string) => {
+  const deleteUser = async (userEmail: string) => {
     try {
       const response = await fetch(
         `http://localhost:5000/api/users/email/${userEmail}`,

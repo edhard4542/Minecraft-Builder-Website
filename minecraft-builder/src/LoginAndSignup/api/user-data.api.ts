@@ -20,7 +20,7 @@ export const addUser = async (userData: User) => {
 
 export const getUserByEmail = async (userEmail: string): Promise<User> => {
   let loggedInUser: User = {
-    id: "",
+    userId: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -42,7 +42,7 @@ export const getUserByEmail = async (userEmail: string): Promise<User> => {
     }
     const fetchedUser = await response.json();
     return {
-      id: fetchedUser.userId,
+      userId: fetchedUser.userId,
       firstName: fetchedUser.firstName,
       lastName: fetchedUser.lastName,
       email: fetchedUser.email,
@@ -55,7 +55,7 @@ export const getUserByEmail = async (userEmail: string): Promise<User> => {
 };
 export const getUserById = async (userId: string): Promise<User> => {
   let loggedInUser: User = {
-    id: "",
+    userId: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -73,7 +73,7 @@ export const getUserById = async (userId: string): Promise<User> => {
     }
     const fetchedUser = await response.json();
     return {
-      id: fetchedUser.userId,
+      userId: fetchedUser.userId,
       firstName: fetchedUser.firstName,
       lastName: fetchedUser.lastName,
       email: fetchedUser.email,
