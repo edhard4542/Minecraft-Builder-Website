@@ -33,18 +33,19 @@ export const LoginAndSignup = () => {
   };
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
       const loggedInUser = await getUserByEmail(login.email);
       setIsLoginSuccess(!!loggedInUser.minecraftAccountName);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error, "login error");
+    }
   };
 
   const handleSignup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // Call addUser with the signup state
       await addUser({ ...signup, id: new Date().getTime().toString() });
-      console.log("User registered successfully");
 
       // Reset the signup form or handle the success (e.g., redirect)
       setSignup({

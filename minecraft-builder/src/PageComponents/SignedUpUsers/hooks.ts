@@ -105,6 +105,28 @@ export function useUserData() {
     }
   };
 
+ const deleteUser = async (userEmail: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/users/email/${userEmail}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      await getUsers(); // Refresh the users list
+    } catch (error) {
+      console.error("There was a problem with the PUT request:", error);
+    }
+  };
+
   return {
     users,
     setUsers,
@@ -112,6 +134,6 @@ export function useUserData() {
     getUsers,
     addUser,
     updateUser,
-    // deleteUser,
+    deleteUser,
   };
 }

@@ -5,28 +5,26 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const someUsers = await User.find({});
-    console.log(someUsers, "someUsers");
-    const newUsersShape = someUsers.map((fetchedUser) => {
+    const allUsers = await User.find({});
+    const shapedUserData = allUsers.map((fetchedUser) => {
       return {
         id: fetchedUser.userId,
         firstName: fetchedUser.firstName,
         lastName: fetchedUser.lastName,
         email: fetchedUser.email,
-        phoneNumber: fetchedUser.phoneNumber,
-        birthday: fetchedUser.birthday,
+        minecraftAccountName: fetchedUser.minecraftAccountName,
       };
     });
-    res.json(newUsersShape);
+    res.json(shapedUserData);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-router.get("/:userId", async (req, res) => {
+router.get("/email/:userEmail", async (req, res) => {
   try {
-    const user = await User.findOne({ userId: req.params.userId });
-    console.log(user, "fetchedUser");
+    const user = await User.findOne({ email: req.params.userEmail });
+    ``;
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -37,8 +35,29 @@ router.get("/:userId", async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      phoneNumber: user.phoneNumber,
-      birthday: user.birthday,
+      minecraftAccountName: user.minecraftAccountName,
+    };
+
+    res.json(newUserShape);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get("/:userId", async (req, res) => {
+  try {
+    const user = await User.findOne({ userId: req.params.userId });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const newUserShape = {
+      id: user.userId,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      minecraftAccountName: user.minecraftAccountName,
     };
 
     res.json(newUserShape);
@@ -79,6 +98,24 @@ router.delete("/:userId", async (req, res) => {
 
   try {
     const deletedUser = await User.findByIdAndRemove(userId);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ message: "User deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.delete("/email/:userEmail", async (req, res) => {
+  const { userEmail } = req.params;
+
+  try {
+    const deletedUser = await User.findOneAndDelete({
+      email: { $regex: new RegExp(`^${userEmail}$`, "i") },
+    });
 
     if (!deletedUser) {
       return res.status(404).json({ message: "User not found" });

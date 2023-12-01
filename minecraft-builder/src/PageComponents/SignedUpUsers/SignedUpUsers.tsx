@@ -3,10 +3,11 @@ import FooterPage from "../../Footer/FooterPage";
 import Navigation from "../../Navigation/Navigation";
 import { DynamicField, User } from "../../types";
 import { useUserData, useUserState } from "./hooks";
-import { handleDynamicFieldChange, removeDynamicField } from "./utils";
+import { handleDynamicFieldChange } from "./utils";
 
 export const SignedUpUsers = () => {
-  const { users, setUsers, getUsers, addUser, updateUser } = useUserData();
+  const { users, setUsers, getUsers, addUser, updateUser, deleteUser } =
+    useUserData();
   const [editingUser, setEditingUser] = useState<User | null>(null);
   const email = useUserState("");
   const firstName = useUserState("");
@@ -64,12 +65,12 @@ export const SignedUpUsers = () => {
     }
   };
 
-  const onRemoveField = (id: number) => {
-    removeDynamicField(dynamicFields, setDynamicFields, id);
-  };
-
   const onDynamicFieldChange = (id: number, value: string) => {
     handleDynamicFieldChange(dynamicFields, setDynamicFields, id, value);
+  };
+
+  const handleDeleteUser = (userEmail: string) => {
+    deleteUser(userEmail);
   };
 
   console.log(users, "users");
@@ -109,12 +110,10 @@ export const SignedUpUsers = () => {
                     onDynamicFieldChange(field.id, e.target.value)
                   }
                 />
-                {/* <button type="button" onClick={() => onRemoveField(field.id)}>
-                  Remove Field
-                </button> */}
               </div>
             ))}
             <button onClick={() => handleEditClick(user)}>Edit</button>
+            <button onClick={() => handleDeleteUser(user.email)}>Delete</button>
           </li>
         ))}
       </ul>

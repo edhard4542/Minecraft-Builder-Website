@@ -26,9 +26,10 @@ export const getUserByEmail = async (userEmail: string): Promise<User> => {
     email: "",
     minecraftAccountName: "",
   };
+
   try {
     const response = await fetch(
-      `http://localhost:5000/api/users/${userEmail}`,
+      `http://localhost:5000/api/users/email/${userEmail}`,
       {
         method: "GET",
         headers: {
@@ -40,7 +41,6 @@ export const getUserByEmail = async (userEmail: string): Promise<User> => {
       throw new Error("Network response was not ok");
     }
     const fetchedUser = await response.json();
-    console.log(fetchedUser, "fetchedUser");
     return {
       id: fetchedUser.userId,
       firstName: fetchedUser.firstName,
@@ -72,7 +72,6 @@ export const getUserById = async (userId: string): Promise<User> => {
       throw new Error("Network response was not ok");
     }
     const fetchedUser = await response.json();
-    console.log(fetchedUser, "fetchedUser");
     return {
       id: fetchedUser.userId,
       firstName: fetchedUser.firstName,
