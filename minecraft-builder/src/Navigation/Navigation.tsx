@@ -48,7 +48,10 @@ const Navigation = () => {
       >
         <Tab
           label={
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link
+              to="/home"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               Home
             </Link>
           }
