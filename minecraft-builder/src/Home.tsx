@@ -10,6 +10,7 @@ import image4 from "../src/assets/moon.jpg";
 import FooterPage from "./Footer/FooterPage";
 import Navigation from "./Navigation/Navigation";
 
+
 export const Home = () => {
   const headerStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -19,6 +20,12 @@ export const Home = () => {
     color: "white",
     padding: 2,
     textAlign: "center",
+    fontSize: "2rem",
+  };
+
+  const carouselContainerStyle = {
+    maxWidth: "1500px", 
+    margin: "0 auto", 
   };
 
   return (
@@ -27,7 +34,7 @@ export const Home = () => {
       {/* Header */}
       <Box sx={headerStyle}>
         <h1>CraftAssist</h1>
-        <h3>A Minecraft Bedrock Builder Generators</h3>
+        <h3>A Minecraft Generator website</h3>
       </Box>
 
       {/* home page */}
@@ -46,37 +53,39 @@ export const Home = () => {
       </div>
 
       {/* carousel */}
-      <Carousel
-        autoPlay={true}
-        interval={3000}
-        infiniteLoop={true}
-        stopOnHover={false}
-      >
-        <div>
-          <img src={image1} alt="Image 1" />
-          <p className="legend">Image 1</p>
-        </div>
-        <div>
-          <img src={image2} alt="Image 2" />
-          <p className="legend">Image 2</p>
-        </div>
-        <div>
-          <img src={image3} alt="Image 3" />
-          <p className="legend">Image 3</p>
-        </div>
-        <div>
-          <img src={image4} alt="Image 4" />
-          <p className="legend">Image 4</p>
-        </div>
-        <div>
-          <img src={image5} alt="Image 5" />
-          <p className="legend">Image 4</p>
-        </div>
-        <div>
-          <img src={image6} alt="Image 6" />
-          <p className="legend">Image 4</p>
-        </div>
-      </Carousel>
+      <div style={carouselContainerStyle}>
+        <Carousel
+          autoPlay={true}
+          interval={3000}
+          infiniteLoop={true}
+          stopOnHover={false}
+        >
+          <div>
+            <img src={image1} alt="Image 1" />
+            <p className="legend">Image 1</p>
+          </div>
+          <div>
+            <img src={image2} alt="Image 2" />
+            <p className="legend">Image 2</p>
+          </div>
+          <div>
+            <img src={image3} alt="Image 3" />
+            <p className="legend">Image 3</p>
+          </div>
+          <div>
+            <img src={image4} alt="Image 4" />
+            <p className="legend">Image 4</p>
+          </div>
+          <div>
+            <img src={image5} alt="Image 5" />
+            <p className="legend">Image 4</p>
+          </div>
+          <div>
+            <img src={image6} alt="Image 6" />
+            <p className="legend">Image 4</p>
+          </div>
+        </Carousel>
+      </div>
       <FooterPage />
     </div>
   );

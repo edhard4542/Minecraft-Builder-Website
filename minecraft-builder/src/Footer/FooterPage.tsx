@@ -36,7 +36,7 @@ const FooterPage: FC = () => {
           </Routes>
         </div>
         <p style={{ margin: "10px 0", fontSize: "12px" }}>
-          © {new Date().getFullYear()} YourWebsiteName
+          © {new Date().getFullYear()} CraftAssist
         </p>
       </footer>
     </Box>

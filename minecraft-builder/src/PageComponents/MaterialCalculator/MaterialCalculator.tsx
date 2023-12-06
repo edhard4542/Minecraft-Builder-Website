@@ -1,6 +1,8 @@
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { ChangeEvent, FC, useState } from "react";
+import image2 from "../../assets/room.jpg";
+import image1 from "../../assets/portalroom.jpg";
 
 import { TextField } from "@mui/material";
 import FooterPage from "../../Footer/FooterPage";
@@ -90,10 +92,45 @@ export const MaterialCalculator: FC = () => {
   };
 
   return (
-    <>
+    <div>
       <Navigation />
+      <div
+        style={{
+          textAlign: 'center'
+        }}
+      >
+        <h1>Welcome to the Material Calculator</h1>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          flexWrap: "wrap",
+        }}
+      >
+        <img
+          src={image1}
+          alt="house"
+          style={{
+            width: "45%",
+            height: "auto",
+            maxWidth: "100%",
+            marginTop: "20px",
+          }}
+        />
+        <img
+          src={image2}
+          alt="floor"
+          style={{
+            width: "45%",
+            height: "auto",
+            maxWidth: "100%",
+            marginTop: "20px",
+          }}
+        />
+      </div>
+      <br></br>
       <div>
-        <h2>Material Calculator</h2>
         <Select
           value={selectedConversion}
           label="Material Input"
@@ -133,6 +170,6 @@ export const MaterialCalculator: FC = () => {
         <p>{calculateOutput()}</p>
       ) : null}
       <FooterPage />
-    </>
+    </div>
   );
 };
