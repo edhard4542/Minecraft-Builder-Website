@@ -79,7 +79,7 @@ import image73 from "../../assets/recipies/wool.jpg";
 interface RecipeImages {
   [key: string]: string;
 }
-export const PalletGenerator = () => {
+export const RecipeLookup = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const recipeImages: RecipeImages = {

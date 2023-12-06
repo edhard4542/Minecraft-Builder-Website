@@ -5,7 +5,7 @@ import { ContactMe } from "./Footer/ContactMe";
 import { Home } from "./Home";
 import { LoginAndSignup } from "./LoginAndSignup/LoginAndSignup";
 import { MaterialCalculator } from "./PageComponents/MaterialCalculator/MaterialCalculator";
-import { PalletGenerator } from "./PageComponents/PalletGenerator/PalletGenerator";
+import { RecipeLookup } from "./PageComponents/RecipeLookup/RecipeLookup";
 import { ShapeGenerator } from "./PageComponents/ShapeGenerator/ShapeGenerator";
 import { SignedUpUsers } from "./PageComponents/SignedUpUsers/SignedUpUsers";
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/pallet-generator" element={<PalletGenerator />} />
+        <Route path="/recipes" element={<RecipeLookup />} />
         <Route path="/shape-generator" element={<ShapeGenerator />} />
         <Route path="/material-calculator" element={<MaterialCalculator />} />
         <Route path="/signed-up-users" element={<SignedUpUsers />} />
