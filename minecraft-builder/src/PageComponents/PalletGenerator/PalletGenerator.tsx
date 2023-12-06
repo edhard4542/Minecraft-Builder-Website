@@ -76,11 +76,13 @@ import image71 from "../../assets/recipies/waxedcopper.jpg";
 import image72 from "../../assets/recipies/wood.jpg";
 import image73 from "../../assets/recipies/wool.jpg";
 
+interface RecipeImages {
+  [key: string]: string;
+}
 export const PalletGenerator = () => {
-  const [selectedValue, setSelectedValue] = useState("");
-  const [selectedImage, setSelectedImage] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const products = {
+  const recipeImages: RecipeImages = {
     anvil: image3,
     arrow: image4,
     axe: image5,
@@ -154,18 +156,38 @@ export const PalletGenerator = () => {
     wool: image73,
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value, "e.target.value");
-    setSelectedValue(e.target.value);
-    const selectedProduct = e.target.value.toLowerCase().trim();
-    const selectedImagePath =
-      products[selectedProduct as keyof typeof products];
-    if (selectedImagePath) {
-      setSelectedImage(selectedImagePath);
-    } else {
-      setSelectedImage(""); // Clear the image
-      console.log("Product not found");
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    // Convert the user input to lowercase and replace spaces with underscores
+    const inputValue = e.target.value.toLowerCase().replace(/\s+/g, "_");
+    setSearchTerm(inputValue);
+  };
+
+  const getImageElements = () => {
+    const imageElements = [];
+    for (const key in recipeImages) {
+      // Check if the key starts with the search term
+      if (key.startsWith(searchTerm)) {
+        // Replace underscores with spaces for display
+        const imageDescription = key.replace(/_/g, " ");
+        const imageSrc = recipeImages[key];
+
+        // Create the image element
+        const imageElement = (
+          <div key={key}>
+            <p>{imageDescription}</p>
+            <img
+              src={imageSrc}
+              alt={key}
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
+        );
+
+        // Add the image element to the array
+        imageElements.push(imageElement);
+      }
     }
+    return imageElements;
   };
 
   return (
@@ -217,21 +239,23 @@ export const PalletGenerator = () => {
       <div>
         <input
           type="text"
-          value={selectedValue}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
+          value={searchTerm}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)}
           placeholder="Enter Item for Recipe"
         />
       </div>
-      {selectedImage && (
+      {/* {recipeToShow && (
         <div>
-          <p>Image for {selectedValue}:</p>
+          <p>Image for {searchTerm}:</p>
           <img
-            src={selectedImage}
-            alt={selectedValue}
+            src={recipeToShow}
+            alt={searchTerm}
             style={{ maxWidth: "100%", height: "auto" }}
           />
         </div>
-      )}
+      )} */}
+
+      <div>{getImageElements()}</div>
       <FooterPage />
     </div>
   );
