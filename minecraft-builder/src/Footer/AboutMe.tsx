@@ -2,12 +2,29 @@ import React from "react";
 import Navigation from "../Navigation/Navigation";
 import image2 from "../assets/zestyandbaked.jpg";
 import image1 from "../assets/me.jpg.jpg";
+import { Box } from "@mui/material";
+import backgroundImage from "../assets/minecraft_mountains_trees.jpg";
+
 
 const AboutMe: React.FC = () => {
   console.log(image2, "image2");
+  const headerStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center bottom",
+    color: "white",
+    padding: 2,
+    textAlign: "center",
+    fontSize: "2rem",
+  };
   return (
     <div className="about-container">
       <Navigation />
+      <Box sx={headerStyle}>
+        <h1>CraftAssist</h1>
+        <h3>A Minecraft Generator website</h3>
+      </Box>
       <div
         style={{ textAlign: "center", marginTop: "20px" }}
         className="about-header"

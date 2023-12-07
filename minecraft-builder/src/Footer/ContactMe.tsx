@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import { TextField, Button, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import backgroundImage from "../assets/minecraft_mountains_trees.jpg";
+
 
 export const ContactMe: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -8,18 +11,28 @@ export const ContactMe: React.FC = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const headerStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center bottom",
+    color: "white",
+    padding: 2,
+    textAlign: "center",
+    fontSize: "2rem",
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you can handle sending the email (For example, using a backend service)
-
-    // Simulating email sending
+    
     const formData = {
       firstName,
       lastName,
       email,
       message,
     };
+
+  
 
     // Replace this with your actual email sending logic
     console.log("Sending email to edhardin01@gmail.com with data:", formData);
@@ -35,6 +48,10 @@ export const ContactMe: React.FC = () => {
   return (
     <div>
       <Navigation />
+      <Box sx={headerStyle}>
+        <h1>CraftAssist</h1>
+        <h3>A Minecraft Generator website</h3>
+      </Box>
       <Typography variant="h4" align="center" gutterBottom>
         Contact Me
       </Typography>

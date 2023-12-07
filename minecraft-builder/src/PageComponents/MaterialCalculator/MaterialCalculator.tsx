@@ -8,6 +8,8 @@ import { TextField } from "@mui/material";
 import FooterPage from "../../Footer/FooterPage";
 import Navigation from "../../Navigation/Navigation";
 import { conversions } from "./material-conversions";
+import { Box } from "@mui/material";
+import backgroundImage from "../../assets/minecraft_mountains_trees.jpg";
 
 export const MaterialCalculator: FC = () => {
   const [selectedConversion, setSelectedConversion] = useState<string>("");
@@ -36,6 +38,16 @@ export const MaterialCalculator: FC = () => {
       const inputName = conversion.input;
       setInputMaterialLabel(`Input material amount for ${inputName}`);
     }
+  };
+  const headerStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center bottom",
+    color: "white",
+    padding: 2,
+    textAlign: "center",
+    fontSize: "2rem",
   };
 
   // console.log(conversions, "conversions");
@@ -94,9 +106,13 @@ export const MaterialCalculator: FC = () => {
   return (
     <div>
       <Navigation />
+      <Box sx={headerStyle}>
+        <h1>CraftAssist</h1>
+        <h3>A Minecraft Generator website</h3>
+      </Box>
       <div
         style={{
-          textAlign: 'center'
+          textAlign: "center",
         }}
       >
         <h1>Welcome to the Material Calculator</h1>

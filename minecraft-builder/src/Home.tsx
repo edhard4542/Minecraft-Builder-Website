@@ -41,14 +41,19 @@ export const Home = () => {
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         <h2>Welcome to CraftAssist!</h2>
         <p>
-          My Name is Erica Hardin and I am an avid bedrock minecraft player. I
-          have been playing since I can remember. One of my favorite features in
-          Minecraft is the vast and endless building options. However, I have
-          always struggled with certain aspects of building. For example,
-          choosing what blocks I want to use or needing help laying out a
-          certain shape like a circle. This is why I decided that there should
-          be a way to generate these things. I created this website to help
-          other builders like me who have trouble making decisions.
+          Welcome to CraftAssist! On this website, you will be able to get some
+          help with crafting recipes and conversions for Minecraft. The tab labeled “crafting recipes” will allow you
+          to select craftable items in Minecraft, once selected it will display
+          the items necessary to create your desired item! The other main tab,
+          “conversion tool” is great for any type of Minecraft building or
+          crafting. On this tab you will be able to select an item you have,
+          input the amount, and choose a conversion option. This will show you
+          how much of any given item you can make with the items you already
+          have! Please feel free to also check out the “About Me” tab to learn
+          more about this website and me! If you have any issues,
+          recommendations, or other comments, don’t hesitate to contact me with
+          the tool at the bottom of the page! Thanks for visiting and happy
+          crafting!
         </p>
       </div>
 

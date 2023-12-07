@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import { Box } from "@mui/material";
 import FooterPage from "../../Footer/FooterPage";
 import Navigation from "../../Navigation/Navigation";
 import image2 from "../../assets/prettyfloor.jpg";
@@ -130,6 +131,14 @@ import image72 from "../../assets/recipies/wood.jpg";
 import image73 from "../../assets/recipies/wool.jpg";
 import image135 from "../../assets/recipies/woolcolors.jpg";
 import image1 from "../../assets/villageHouse.jpg";
+import image37 from "../../assets/recipies/carpet.jpg";
+import image200 from "../../assets/recipies/copperBlock.jpg";
+import image201 from "../../assets/recipies/hangingSign.jpg";
+import image202 from "../../assets/recipies/hoe.jpg";
+import image204 from "../../assets/recipies/painting.jpg";
+import image205 from "../../assets/recipies/scaffolding.jpg";
+import image206 from "../../assets/recipies/terracotta.jpg";
+import backgroundImage from "../../assets/minecraft_mountains_trees.jpg";
 
 interface RecipeImageDetail {
   image: string;
@@ -145,6 +154,7 @@ export const RecipeLookup = () => {
   const [imageDescription, setImageDescription] = useState("");
 
   const recipeImages: RecipeImages = {
+    //properties : string value
     anvil: { image: image3, description: "Description for Anvil" },
     arrow: { image: image4, description: "Description for Arrow" },
     axe: { image: image5, description: "Description for Axe" },
@@ -174,6 +184,7 @@ export const RecipeLookup = () => {
     bricks: { image: image15, description: "Description for Bricks" },
     bucket: { image: image16, description: "Description for Bucket" },
     campfire: { image: image17, description: "Description for Campfire" },
+    carpet: { image: image37, description: "Description for Campfire" },
     candle: { image: image18, description: "Description for Candle" },
     cauldron: { image: image78, description: "Description for Cauldron" },
     chain: { image: image79, description: "Description for Chain" },
@@ -216,6 +227,10 @@ export const RecipeLookup = () => {
     compass: { image: image25, description: "Description for Compass" },
     concrete_powder: {
       image: image26,
+      description: "Description for Concrete Powder",
+    },
+    copper_Block: {
+      image: image200,
       description: "Description for Concrete Powder",
     },
     crafting_table: {
@@ -300,8 +315,16 @@ export const RecipeLookup = () => {
       description: "Description for Golden Carrot",
     },
     grindstone: { image: image100, description: "Description for Grindstone" },
+    hanging_sign: {
+      image: image201,
+      description: "Description for Concrete Powder",
+    },
     hay: { image: image101, description: "Description for Hay" },
     helmet: { image: image38, description: "Description for Helmet" },
+    hoe: {
+      image: image202,
+      description: "Description for Concrete Powder",
+    },
     honey_block: {
       image: image102,
       description: "Description for Honey Block",
@@ -342,6 +365,10 @@ export const RecipeLookup = () => {
     oxidized_cut_copper: {
       image: image111,
       description: "Description for Oxidized Cut Copper",
+    },
+    painting: {
+      image: image204,
+      description: "Description for Concrete Powder",
     },
     pickaxe: { image: image47, description: "Description for Pickaxe" },
     plank: { image: image113, description: "Description for Plank" },
@@ -400,6 +427,10 @@ export const RecipeLookup = () => {
       description: "Description for Red Sandstone",
     },
     sandstone: { image: image54, description: "Description for Sandstone" },
+    scaffolding: {
+      image: image205,
+      description: "Description for Concrete Powder",
+    },
     shears: { image: image123, description: "Description for Shears" },
     shield: { image: image56, description: "Description for Shield" },
     shovel: { image: image57, description: "Description for Shovel" },
@@ -421,6 +452,10 @@ export const RecipeLookup = () => {
       description: "Description for Stripped Wood Block",
     },
     sword: { image: image67, description: "Description for Sword" },
+    terracotta: {
+      image: image206,
+      description: "Description for Concrete Powder",
+    },
     tnt: { image: image68, description: "Description for TNT" },
     torch: { image: image69, description: "Description for Torch" },
     trapdoor: { image: image70, description: "Description for Trapdoor" },
@@ -463,7 +498,16 @@ export const RecipeLookup = () => {
     wood: { image: image72, description: "Description for Wood" },
     wool: { image: image73, description: "Description for Wool" },
   };
-
+  const headerStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center bottom",
+    color: "white",
+    padding: 2,
+    textAlign: "center",
+    fontSize: "2rem",
+  };
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     // Convert the user input to lowercase and replace spaces with underscores
     const inputValue = e.target.value.toLowerCase().replace(/\s+/g, "_");
@@ -498,6 +542,10 @@ export const RecipeLookup = () => {
   return (
     <div>
       <Navigation />
+      <Box sx={headerStyle}>
+        <h1>CraftAssist</h1>
+        <h3>A Minecraft Generator website</h3>
+      </Box>
 
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         <h1>Welcome to The Recipe Generator!</h1>
