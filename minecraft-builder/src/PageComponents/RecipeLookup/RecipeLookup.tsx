@@ -367,17 +367,6 @@ export const RecipeLookup = () => {
           placeholder="Enter Item for Recipe"
         />
       </div>
-      {/* {recipeToShow && (
-        <div>
-          <p>Image for {searchTerm}:</p>
-          <img
-            src={recipeToShow}
-            alt={searchTerm}
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </div>
-      )} */}
-
       <div>{getImageElements()}</div>
       <FooterPage />
     </div>
