@@ -75,6 +75,71 @@ import image70 from "../../assets/recipies/trapdoor.jpg";
 import image71 from "../../assets/recipies/waxedcopper.jpg";
 import image72 from "../../assets/recipies/wood.jpg";
 import image73 from "../../assets/recipies/wool.jpg";
+import image74 from "../../assets/recipies/blastFurance.jpg";
+import image75 from "../../assets/recipies/bread.jpg";
+import image76 from "../../assets/recipies/brewingStand.jpg";
+import image77 from "../../assets/recipies/carpet.jpg";
+import image78 from "../../assets/recipies/cauldron.jpg";
+import image79 from "../../assets/recipies/chain.jpg";
+import image80 from "../../assets/recipies/chiseledDeepslate.jpg";
+import image81 from "../../assets/recipies/chiseledPolishedBlackstone.jpg";
+import image82 from "../../assets/recipies/chiseledQuartz.jpg";
+import image83 from "../../assets/recipies/chiseledredsandstone.jpg";
+import image84 from "../../assets/recipies/chiseledStandstone.jpg";
+import image85 from "../../assets/recipies/coalblock.jpg";
+import image86 from "../../assets/recipies/copperBlock.jpg";
+import image87 from "../../assets/recipies/crimsonHyphane.jpg";
+import image88 from "../../assets/recipies/cutRedSandstone.jpg";
+import image89 from "../../assets/recipies/cutSandstone.jpg";
+import image90 from "../../assets/recipies/darkPrismarine.jpg";
+import image91 from "../../assets/recipies/deepslateBricks.jpg";
+import image92 from "../../assets/recipies/deepslateTiles.jpg";
+import image93 from "../../assets/recipies/driedKelp.jpg";
+import image94 from "../../assets/recipies/emeraldBlock.jpg";
+import image95 from "../../assets/recipies/exposedCutCopper.jpg";
+import image96 from "../../assets/recipies/flintandSteal.jpg";
+import image97 from "../../assets/recipies/glisteringMelon.jpg";
+import image98 from "../../assets/recipies/goldblock.jpg";
+import image99 from "../../assets/recipies/goldenCarrot.jpg";
+import image100 from "../../assets/recipies/grindstone.jpg";
+import image101 from "../../assets/recipies/hay.jpg";
+import image102 from "../../assets/recipies/honeyblock.jpg";
+import image103 from "../../assets/recipies/honeycombBlock.jpg";
+import image104 from "../../assets/recipies/ironBlock.jpg";
+import image105 from "../../assets/recipies/LapisBlock.jpg";
+import image106 from "../../assets/recipies/lectern.jpg";
+import image107 from "../../assets/recipies/melon.jpg";
+import image108 from "../../assets/recipies/mossyStonebricks.jpg";
+import image109 from "../../assets/recipies/mushroomStew.jpg";
+import image110 from "../../assets/recipies/netherBricks.jpg";
+import image111 from "../../assets/recipies/oxidizedCutCopper.jpg";
+import image112 from "../../assets/recipies/Pillarquartz.jpg";
+import image113 from "../../assets/recipies/planks.jpg";
+import image114 from "../../assets/recipies/polishedBasalt.jpg";
+import image115 from "../../assets/recipies/poloshedBlackstoneBricks.jpg";
+import image116 from "../../assets/recipies/purpurBlock.jpg";
+import image117 from "../../assets/recipies/purpurPillar.jpg";
+import image118 from "../../assets/recipies/rail.jpg";
+import image119 from "../../assets/recipies/rawCopperBlock.jpg";
+import image120 from "../../assets/recipies/RawGoldBlock.jpg";
+import image121 from "../../assets/recipies/redNetherBrick.jpg";
+import image122 from "../../assets/recipies/redsandstone.jpg";
+import image123 from "../../assets/recipies/shears.jpg";
+import image124 from "../../assets/recipies/smoker.jpg";
+import image125 from "../../assets/recipies/strippedwood.jpg";
+import image126 from "../../assets/recipies/terracotta.jpg";
+import image127 from "../../assets/recipies/waxedCutCopper.jpg";
+import image128 from "../../assets/recipies/waxedExposedCopper.jpg";
+import image129 from "../../assets/recipies/waxedExposedCutCopper.jpg";
+import image130 from "../../assets/recipies/waxedOxidizedCopper.jpg";
+import image131 from "../../assets/recipies/waxedOxidizedCutCopper.jpg";
+import image132 from "../../assets/recipies/waxedWeatheredCopper.jpg";
+import image133 from "../../assets/recipies/waxedWeatheredCutCopper.jpg";
+import image134 from "../../assets/recipies/weatheredCutCopper.jpg";
+import image135 from "../../assets/recipies/woolcolors.jpg";
+import image136 from "../../assets/recipies/lead.jpg";
+
+
 
 interface RecipeImages {
   [key: string]: string;
@@ -87,7 +152,7 @@ export const RecipeLookup = () => {
     arrow: image4,
     axe: image5,
     bamboo_plank: image6,
-    bars: image7,
+    iron_bars: image7,
     bed: image8,
     block_of_bamboo: image9,
     boat: image10,
@@ -101,8 +166,8 @@ export const RecipeLookup = () => {
     candle: image18,
     chest: image19,
     chestplate: image20,
-    chiseled_brick: image21,
-    chiseled_netherbrick: image22,
+    chiseled_brick_block: image21,
+    chiseled_netherbrick_block: image22,
     clock: image23,
     cobblestone_wall: image24,
     compass: image25,
@@ -112,20 +177,20 @@ export const RecipeLookup = () => {
     diamond_block: image29,
     door: image30,
     enchantment_table: image31,
-    endbrick: image32,
+    end_stone_brick: image32,
     fence: image33,
     fishing_rod: image34,
-    gate: image35,
+    fence_gate: image35,
     golden_apple: image36,
     hanging_sign: image37,
     helmet: image38,
     hoe: image39,
-    itemframe: image40,
+    item_frame: image40,
     ladder: image41,
     lantern: image42,
     mossy_cobblestone: image43,
     painting: image44,
-    panes: image45,
+    glass_panes: image45,
     leggings: image46,
     pickaxe: image47,
     flower_pot: image48,
@@ -134,7 +199,7 @@ export const RecipeLookup = () => {
     quartz_block: image51,
     quartz_brick: image52,
     raw_iron_block: image53,
-    sand: image54,
+    sandstone: image54,
     scaffolding: image55,
     shield: image56,
     shovel: image57,
@@ -152,8 +217,75 @@ export const RecipeLookup = () => {
     torch: image69,
     trapdoor: image70,
     waxed_copper_block: image71,
-    wood: image72,
+    planks: image72,
     wool: image73,
+    blast_furnace: image74,
+    bread: image75,
+    brewing_stand: image76,
+    carpet: image77,
+    cauldron: image78,
+    chain: image79,
+    chiseled_deepslate: image80,
+    chiseled_polished_blackstone: image81,
+    chiseled_quartz: image82,
+    chiseled_red_sandstone: image83,
+    chiseled_sandstone: image84,
+    coal_block: image85,
+    copper_block: image86,
+    crimson_hyphae: image87,
+    cut_red_sandstone: image88,
+    cut_sandstone: image89,
+    dark_prismarine: image90,
+    deepslate_bricks: image91,
+    deepslate_tile: image92,
+    dried_kelp: image93,
+    emerald_block: image94,
+    exposed_cut_copper: image95,
+    flint_and_steel: image96,
+    glistering_melon: image97,
+    gold_block: image98,
+    golden_carrot: image99,
+    grindstone: image100,
+    hay: image101,
+    honey_block: image102,
+    honeycomb_block: image103,
+    iron_block: image104,
+    lapis_lazuli_block: image105,
+    lectern: image106,
+    melon: image107,
+    mossy_stone_brick: image108,
+    mushroom_stew: image109,
+    nether_brick: image110,
+    oxidized_cut_copper: image111,
+    quartz_pillar: image112,
+    wood_plank: image113,
+    polished_basalt: image114,
+    polished_blackstone_brick: image115,
+    purpur_block: image116,
+    purpur_pillar: image117,
+    rail: image118,
+    raw_copper_block: image119,
+    raw_gold_block: image120,
+    red_nether_brick: image121,
+    red_sandstone: image122,
+    shears: image123,
+    smoker: image124,
+    stripped_wood_block: image125,
+    terracotta: image126,
+    waxed_cut_copper_block: image127,
+    waxed_exposed_copper_block: image128,
+    waxed_exposed_cut_copper_block: image129,
+    waxed_oxidized_copper_block: image130,
+    waxed_oxidized_cut_copper_block: image131,
+    waxed_weathered_copper_block: image132,
+    waxed_weathered_cut_copper_block: image133,
+    weathered_cut_copper_block: image134,
+    dyed_wool: image135,
+    lead: image136,
+    
+    
+
+
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -165,13 +297,13 @@ export const RecipeLookup = () => {
   const getImageElements = () => {
     const imageElements = [];
     for (const key in recipeImages) {
-      // Check if the key starts with the search term
+      
       if (key.startsWith(searchTerm)) {
-        // Replace underscores with spaces for display
+       
         const imageDescription = key.replace(/_/g, " ");
         const imageSrc = recipeImages[key];
 
-        // Create the image element
+        
         const imageElement = (
           <div key={key}>
             <p>{imageDescription}</p>
@@ -183,7 +315,7 @@ export const RecipeLookup = () => {
           </div>
         );
 
-        // Add the image element to the array
+        
         imageElements.push(imageElement);
       }
     }
