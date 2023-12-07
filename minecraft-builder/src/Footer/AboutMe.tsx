@@ -1,9 +1,10 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
-import image2 from "../../assets/zestyandbaked.jpg";
-import image1 from "../../assets/me.jpg.jpg";
+import image2 from "../assets/zestyandbaked.jpg";
+import image1 from "../assets/me.jpg.jpg";
 
 const AboutMe: React.FC = () => {
+  console.log(image2, "image2");
   return (
     <div className="about-container">
       <Navigation />
@@ -12,6 +13,8 @@ const AboutMe: React.FC = () => {
         className="about-header"
       >
         <h1>About Me</h1>
+        <img src={image2} alt="Description of the image" />
+        <img src={image1} alt="Description of the image" />
       </div>
 
       <div className="about-content">
