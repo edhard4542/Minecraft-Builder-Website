@@ -24,8 +24,8 @@ const Navigation = () => {
 
   const NavBar = {
     display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-start",
+    alignItems: "right",
+    justifyContent: "space-between",
     backgroundColor: "#F9B795",
     padding: "8px 16px",
   };
@@ -117,6 +117,9 @@ const Navigation = () => {
 
         {/* User Avatar and Menu */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
+          {!loggedInUser && (
+            <UserAccountButton setLoggedInUser={setLoggedInUser} />
+          )}
           {loggedInUser && (
             <>
               <Tooltip title="User Avatar">
@@ -182,9 +185,6 @@ const Navigation = () => {
                 </MenuItem>
               </Menu>
             </>
-          )}
-          {!loggedInUser && (
-            <UserAccountButton setLoggedInUser={setLoggedInUser} />
           )}
         </Box>
       </Box>
