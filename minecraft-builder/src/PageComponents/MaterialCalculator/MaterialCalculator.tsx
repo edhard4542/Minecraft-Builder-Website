@@ -50,19 +50,17 @@ export const MaterialCalculator: FC = () => {
     fontSize: "2rem",
   };
 
-  // console.log(conversions, "conversions");
+ 
   console.log(selectedConversion, "selectedConversion");
-  // console.log(conversionKeys, "conversionKeys");
-  // console.log(conversionDetails, "conversionDetails");
-  // console.log(conversionDetails.inputAmount, "conversionDetails");
+  
   console.log(userInput, "userInput");
   const handleInputChange = (inputValue: string): void => {
     const inputValueParsed = parseFloat(inputValue);
     // && = AND
     // || = OR
     if (
-      isNaN(inputValueParsed) || // is not a number
-      inputValueParsed < 0 || // is less than zero
+      isNaN(inputValueParsed) || 
+      inputValueParsed < 0 || 
       inputValueParsed < conversionDetails.inputAmount // input is less than minimum input value  needed
     ) {
       // Invalid input, you can display an error message or take other actions
@@ -128,9 +126,9 @@ export const MaterialCalculator: FC = () => {
           src={image1}
           alt="house"
           style={{
-            width: "45%",
+            width: "50%",
             height: "auto",
-            maxWidth: "100%",
+            maxWidth: "30%",
             marginTop: "20px",
           }}
         />
@@ -138,9 +136,9 @@ export const MaterialCalculator: FC = () => {
           src={image2}
           alt="floor"
           style={{
-            width: "45%",
+            width: "50%",
             height: "auto",
-            maxWidth: "100%",
+            maxWidth: "30%",
             marginTop: "20px",
           }}
         />

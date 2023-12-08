@@ -138,6 +138,9 @@ import image202 from "../../assets/recipies/hoe.jpg";
 import image204 from "../../assets/recipies/painting.jpg";
 import image205 from "../../assets/recipies/scaffolding.jpg";
 import image206 from "../../assets/recipies/terracotta.jpg";
+import image207 from "../../assets/recipies/dyedCandle.jpg";
+import image208 from "../../assets/recipies/dyedShulker.jpg";
+
 import backgroundImage from "../../assets/minecraft_mountains_trees.jpg";
 
 interface RecipeImageDetail {
@@ -155,348 +158,624 @@ export const RecipeLookup = () => {
 
   const recipeImages: RecipeImages = {
     //properties : string value
-    anvil: { image: image3, description: "Description for Anvil" },
-    arrow: { image: image4, description: "Description for Arrow" },
-    axe: { image: image5, description: "Description for Axe" },
+    anvil: {
+      image: image3,
+      description:
+        "three blocks of iron and four iron ingots will yield one anvil",
+    },
+    arrow: {
+      image: image4,
+      description:
+        "one flint, one stick, and one feather will yield four arrows",
+    },
+    axe: {
+      image: image5,
+      description:
+        " three cobblestone and two sticks will yield one axe (cobblestone is interchangeable with wood, gold, iron, and diamond)",
+    },
     bamboo_plank: {
       image: image6,
-      description: "Description for Bamboo Plank",
+      description: "one block of bamboo will yield two bamboo planks",
     },
-    bed: { image: image8, description: "Description for Bed" },
+    bed: {
+      image: image8,
+      description:
+        "three wool (any set of the same color) and three planks (any kind and combination) will yield one bed (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
+    },
     blast_furnace: {
       image: image74,
-      description: "Description for Blast Furnace",
+      description:
+        "five iron ingots, one furnace, and three smooth stone will yield one blast furnace",
     },
     block_of_bamboo: {
       image: image9,
-      description: "Description for Block of Bamboo",
+      description: "nine bamboo will yield one bamboo block",
     },
-    boat: { image: image10, description: "Description for Boat" },
-    book: { image: image11, description: "Description for Book" },
-    bookshelf: { image: image12, description: "Description for Bookshelf" },
-    boot: { image: image13, description: "Description for Boot" },
-    bow: { image: image14, description: "Description for Bow" },
-    bread: { image: image75, description: "Description for Bread" },
+    boat: {
+      image: image10,
+      description:
+        "five wood planks (any set of the same type) will yield one boat (wood options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, or cherry)",
+    },
+    book: {
+      image: image11,
+      description: "three paper and one leather will yield one book",
+    },
+    bookshelf: {
+      image: image12,
+      description:
+        "six planks (any kind and combination) and three books will yield one bookshelf",
+    },
+    boot: {
+      image: image13,
+      description:
+        "four iron ingots will yield one pair of boots (iron is interchangeable with leather, gold, or diamond)",
+    },
+    bow: {
+      image: image14,
+      description: "three sticks and three string will yield one bow",
+    },
+    bread: { image: image75, description: "three wheat will yield one bread" },
     brewing_stand: {
       image: image76,
-      description: "Description for Brewing Stand",
+      description:
+        "three cobblestone and one blaze rod will yield one brewing stand",
     },
-    bricks: { image: image15, description: "Description for Bricks" },
-    bucket: { image: image16, description: "Description for Bucket" },
-    campfire: { image: image17, description: "Description for Campfire" },
-    carpet: { image: image37, description: "Description for Campfire" },
-    candle: { image: image18, description: "Description for Candle" },
-    cauldron: { image: image78, description: "Description for Cauldron" },
-    chain: { image: image79, description: "Description for Chain" },
-    chiseled_brick_block: {
+    bricks: {
+      image: image15,
+      description: "four bricks will yield one block of brick",
+    },
+    bucket: {
+      image: image16,
+      description: "three iron ingots will yield one bucket",
+    },
+    campfire: {
+      image: image17,
+      description:
+        "three wood logs (any kind and combination), three sticks, and one charcoal (or coal) will yield one campfire",
+    },
+    carpet: {
+      image: image37,
+      description:
+        "two wool (any set of the same color) will yield three carpet of the same color (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
+    },
+    candle: {
+      image: image18,
+      description: "one wax and one string will yield one candle",
+    },
+    cauldron: {
+      image: image78,
+      description: "seven iron ingots will yield one cauldron",
+    },
+    chain: {
+      image: image79,
+      description: "two iron nuggets and one iron ingot will yield one chain",
+    },
+    chiseled_stone_brick: {
       image: image21,
-      description: "Description for Chiseled Brick Block",
+      description: "two stone brick slabs will yield one chiseled stone brick",
     },
     chiseled_deepslate: {
       image: image80,
-      description: "Description for Chiseled Deepslate",
+      description:
+        "two cobbled deepslate slabs will yield one chiseled deepslate block",
     },
     chiseled_netherbrick_block: {
       image: image22,
-      description: "Description for Chiseled Netherbrick Block",
+      description:
+        "two nether brick slabs will yield one chiseled nether brick block",
     },
     chiseled_polished_blackstone: {
       image: image81,
-      description: "Description for Chiseled Polished Blackstone",
+      description:
+        "two polished black stone slabs will yield one chiseled polished black stone block",
     },
     chiseled_quartz: {
       image: image82,
-      description: "Description for Chiseled Quartz",
+      description: "two quartz slabs will yield one chiseled quartz block",
     },
     chiseled_red_sandstone: {
       image: image83,
-      description: "Description for Chiseled Red Sandstone",
+      description:
+        "two red sandstone slabs will yield one chiseled red sandstone block",
     },
     chiseled_sandstone: {
       image: image84,
-      description: "Description for Chiseled Sandstone",
+      description:
+        "two sandstone slabs will yield one chiseled sandstone block",
     },
-    chest: { image: image19, description: "Description for Chest" },
-    chestplate: { image: image20, description: "Description for Chestplate" },
-    clock: { image: image23, description: "Description for Clock" },
-    coal_block: { image: image85, description: "Description for Coal Block" },
+    chest: {
+      image: image19,
+      description:
+        "eight planks (any kind and combination) will yield one chest",
+    },
+    chestplate: {
+      image: image20,
+      description:
+        "eight iron ingots will yield one chest plate (iron is interchangeable with leather, gold, or diamond)",
+    },
+    clock: {
+      image: image23,
+      description:
+        "four gold ingots and one redstone dust will yield one clock",
+    },
+    coal_block: {
+      image: image85,
+      description: "nine coal will yield one block of coal",
+    },
     cobblestone_wall: {
       image: image24,
-      description: "Description for Cobblestone Wall",
+      description:
+        "five cobblestone will yield six cobble wall (the cobblestone in this recipe can be interchanged with mossy cobble, granite, diorite, andesite, sandstone, red sandstone, stone brick, mossy stone brick, brick, nether, red nether brick, end stone, prismarine, blackstone, polished blackstone, polished blackstone brick, cobbled deepslate, deepslate tile, polished deepslate, deepslate brick, or mud brick)",
     },
-    compass: { image: image25, description: "Description for Compass" },
+    compass: {
+      image: image25,
+      description:
+        "four iron ingot and one redstone dust will yield one compass",
+    },
     concrete_powder: {
       image: image26,
-      description: "Description for Concrete Powder",
+      description:
+        "one dye (any kind), four sand, and four gravel will yield eight concrete powder (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
     },
     copper_Block: {
       image: image200,
-      description: "Description for Concrete Powder",
+      description: "nine copper ingots will yield one copper block",
     },
     crafting_table: {
       image: image27,
-      description: "Description for Crafting Table",
+      description:
+        "four planks (any kind and combination) will yield one crafting table",
     },
     crimson_hyphae: {
       image: image87,
-      description: "Description for Crimson Hyphae",
+      description: "four crimson stem will yield three crimson hyphae",
     },
     cut_copper_block: {
       image: image28,
-      description: "Description for Cut Copper Block",
+      description: "four copper blocks will yield four cut copper blocks",
     },
     cut_red_sandstone: {
       image: image88,
-      description: "Description for Cut Red Sandstone",
+      description: "four red sandstone will yield four red sandstone blocks",
     },
     cut_sandstone: {
       image: image89,
-      description: "Description for Cut Sandstone",
+      description: "four sandstone will yield four sandstone blocks",
     },
     dark_prismarine: {
       image: image90,
-      description: "Description for Dark Prismarine",
+      description:
+        "eight prismarine shards and one black dye will yield one dark prismarine",
     },
     deepslate_bricks: {
       image: image91,
-      description: "Description for Deepslate Bricks",
+      description:
+        "four polished deepslate blocks will yield four deepslate bricks",
     },
     deepslate_tile: {
       image: image92,
-      description: "Description for Deepslate Tile",
+      description: "four deepslate bricks will yield four deepslate tiles",
     },
     diamond_block: {
       image: image29,
-      description: "Description for Diamond Block",
+      description: "nine diamond will yield one diamond block",
     },
-    door: { image: image30, description: "Description for Door" },
-    dried_kelp: { image: image93, description: "Description for Dried Kelp" },
-    dyed_wool: { image: image135, description: "Description for Dyed Wool" },
+    door: {
+      image: image30,
+      description:
+        "six planks (any set of the same kind) will yield three doors. (Door options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, warped, and iron)",
+    },
+    dried_kelp: {
+      image: image93,
+      description: "nine dried kelp will yield one dried kelp block",
+    },
+    dyed_wool: {
+      image: image135,
+      description:
+        "one dye (any color) and one white wool will yield one wool of that color (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
+    },
+    dyed_candle: {
+      image: image207,
+      description:
+        "one dye (any color) and one candle will yield one candle of that color (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
+    },
+    dyed_shulker: {
+      image: image208,
+      description:
+        "one dye (any color) and one shulker box will yield one dyed shulker box of that color (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
+    },
     emerald_block: {
       image: image94,
-      description: "Description for Emerald Block",
+      description: "nine emerald will yield one emerald block",
     },
     enchanted_table: {
       image: image31,
-      description: "Description for Enchanted Table",
+      description:
+        "two books, one diamond, and four obsidian will yield one enchantment table",
     },
     end_stone_brick: {
       image: image32,
-      description: "Description for End Stone Brick",
+      description: "four endstone will yield four endstone brick",
     },
     exposed_cut_copper: {
       image: image95,
-      description: "Description for Exposed Cut Copper",
+      description:
+        "four exposed cut copper will yield four exposed cut copper blocks",
     },
-    fence: { image: image33, description: "Description for Fence" },
-    fence_gate: { image: image35, description: "Description for Fence Gate" },
-    fishing_rod: { image: image34, description: "Description for Fishing Rod" },
+    fence: {
+      image: image33,
+      description:
+        "four planks (any set of the same kind) and two sticks will yield three fences (wood options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, and warped)",
+    },
+    fence_gate: {
+      image: image35,
+      description:
+        "four sticks and two planks (may set of the same kind) will yield one fence gates (wood options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, and warped)",
+    },
+    fishing_rod: {
+      image: image34,
+      description: "three sticks and two string will yield one fishing rod",
+    },
     flint_and_steel: {
       image: image96,
-      description: "Description for Flint and Steel",
+      description: "one flint and one steel will yielded one flint and steel",
     },
-    flower_pot: { image: image48, description: "Description for Flower Pot" },
-    glaass_panes: {
+    flower_pot: {
+      image: image48,
+      description: "three bricks will yield one flower pot",
+    },
+    glass_panes: {
       image: image45,
-      description: "Description for Glass Panes",
-    }, // Note: Spelling error in key 'glaass_panes', should be 'glass_panes'
-    glass_panes: { image: image45, description: "Description for Glass Panes" },
+      description:
+        "six regular or stained glass (any set of the same color) will yield sixteen glass panes of that color (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
+    }, 
+
     glistering_melon: {
       image: image97,
-      description: "Description for Glistering Melon",
+      description:
+        "eight gold nuggets and one melon slice will yield one glistering melon",
     },
-    gold_block: { image: image98, description: "Description for Gold Block" },
+    gold_block: {
+      image: image98,
+      description: "nine gold ingots will yield one gold block",
+    },
     golden_apple: {
       image: image36,
-      description: "Description for Golden Apple",
+      description:
+        "eight gold ingots and one apple will yield one golden apple",
     },
     golden_carrot: {
       image: image99,
-      description: "Description for Golden Carrot",
+      description:
+        "eight gold nuggets and one carrot will yield one golden carrot",
     },
-    grindstone: { image: image100, description: "Description for Grindstone" },
+    grindstone: {
+      image: image100,
+      description:
+        "two sticks, one stone slabs, and two planks (any kind) will yield one grindstone",
+    },
     hanging_sign: {
       image: image201,
-      description: "Description for Concrete Powder",
+      description:
+        "six stripped logs (any kind) and two chains will yield six hanging signs (wood options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, and warped)",
     },
-    hay: { image: image101, description: "Description for Hay" },
-    helmet: { image: image38, description: "Description for Helmet" },
+    hay: {
+      image: image101,
+      description: "nine wheat will yield one hay block",
+    },
+    helmet: {
+      image: image38,
+      description:
+        "five iron ingots will yield one helmet (iron is interchangeable with leather, gold, or diamond)",
+    },
     hoe: {
       image: image202,
-      description: "Description for Concrete Powder",
+      description:
+        "two cobblestone and two sticks will yield one hoe (cobblestone is interchangeable with planks, iron, gold, or diamond)",
     },
     honey_block: {
       image: image102,
-      description: "Description for Honey Block",
+      description: "four bottles of honey will yield one honey block",
     },
     honeycomb_block: {
       image: image103,
-      description: "Description for Honeycomb Block",
+      description: "four honeycomb will yield one honeycomb block",
     },
-    iron_bars: { image: image7, description: "Description for Iron Bars" },
-    iron_block: { image: image104, description: "Description for Iron Block" },
-    item_frame: { image: image40, description: "Description for Item Frame" },
-    ladder: { image: image41, description: "Description for Ladder" },
-    lantern: { image: image42, description: "Description for Lantern" },
+    iron_bars: {
+      image: image7,
+      description: "six iron ingots will yield sixteen iron bars",
+    },
+    iron_block: {
+      image: image104,
+      description: "nine iron ingots will yield one iron block",
+    },
+    item_frame: {
+      image: image40,
+      description: "eight sticks and one leather will yield one item frame",
+    },
+    ladder: {
+      image: image41,
+      description: "seven sticks will yield three ladders",
+    },
+    lantern: {
+      image: image42,
+      description: "eight iron nuggets and one torch will yield one lantern",
+    },
     lapis_lazuli_block: {
       image: image105,
-      description: "Description for Lapis Lazuli Block",
+      description: "nine lapis lazuli will yield one lapis lazuli blocks",
     },
-    lead: { image: image136, description: "Description for Lead" },
-    lectern: { image: image106, description: "Description for Lectern" },
-    leggings: { image: image46, description: "Description for Leggings" },
-    melon: { image: image107, description: "Description for Melon" },
+    lead: {
+      image: image136,
+      description: "two string and one slime ball will yield two leads",
+    },
+    lectern: {
+      image: image106,
+      description:
+        "five wood slabs (any kind and combination) and one bookshelf will yield one lectern",
+    },
+    leggings: {
+      image: image46,
+      description:
+        "seven iron ingots will yield one pair of leggings (iron is interchangeable with leather, gold, or diamond)",
+    },
+    melon: {
+      image: image107,
+      description: "nine melon slices will yield one melon",
+    },
     mossy_cobblestone: {
       image: image43,
-      description: "Description for Mossy Cobblestone",
+      description:
+        "one cobblestone and one vine will yield one mossy cobblestone",
     },
     mossy_stone_brick: {
       image: image108,
-      description: "Description for Mossy Stone Brick",
+      description:
+        "one stone brick and one vine will yield one mossy stone brick",
     },
     mushroom_stew: {
       image: image109,
-      description: "Description for Mushroom Stew",
+      description:
+        "one red mushroom, one brown mushroom, and one bowl will yield one bowl of mushroom stew",
     },
     nether_brick: {
       image: image110,
-      description: "Description for Nether Brick",
+      description: "four nether bricks will yield one nether brick block",
     },
     oxidized_cut_copper: {
       image: image111,
-      description: "Description for Oxidized Cut Copper",
+      description:
+        "four oxidized copper will yield one oxidized cut copper block",
     },
     painting: {
       image: image204,
-      description: "Description for Concrete Powder",
+      description:
+        "eight sticks and one wool (any color) will yield one painting",
     },
-    pickaxe: { image: image47, description: "Description for Pickaxe" },
-    plank: { image: image113, description: "Description for Plank" },
+    pickaxe: {
+      image: image47,
+      description:
+        "three cobblestone and two sticks will yield one pickaxe (cobblestone is interchangeable with wood planks, gold, iron, or diamond)",
+    },
+    plank: {
+      image: image113,
+      description:
+        "one wood log (of any kind) will yield four planks (wood options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, and warped)",
+    },
     polished_basalt: {
       image: image114,
-      description: "Description for Polished Basalt",
+      description: "four basalt will yield four polished basalt blocks",
     },
     polished_blackstone_brick: {
       image: image115,
-      description: "Description for Polished Blackstone Brick",
+      description:
+        "four polished blackstone will yield four polished blackstone bricks",
     },
     prismarine_block: {
       image: image49,
-      description: "Description for Prismarine Block",
+      description: "four prismarine shards will yield one prismarine block",
     },
     prismarine_brick: {
       image: image50,
-      description: "Description for Prismarine Brick",
+      description: "nine prismarine shards will yield one prismarine brick",
     },
     purpur_block: {
       image: image116,
-      description: "Description for Purpur Block",
+      description: "four chorus fruit will yield four purpur blocks",
     },
     purpur_pillar: {
       image: image117,
-      description: "Description for Purpur Pillar",
+      description: "two Purpur slabs will yield one Purpur pillar",
     },
     quartz_block: {
       image: image51,
-      description: "Description for Quartz Block",
+      description: "four quartz dust will yield one quartz block",
     },
     quartz_brick: {
       image: image52,
-      description: "Description for Quartz Brick",
+      description: "four quartz blocks will yield one quartz brick",
     },
     quartz_pillar: {
       image: image112,
-      description: "Description for Quartz Pillar",
+      description: "two quartz blocks will yield two quartz pillar blocks",
     },
-    rail: { image: image118, description: "Description for Rail" },
+    rail: {
+      image: image118,
+      description: "six iron ingots and one stick will yield 16 rails",
+    },
     raw_copper_block: {
       image: image119,
-      description: "Description for Raw Copper Block",
+      description: "nine raw copper will yield one raw copper block",
     },
-    raw_gold_block: { image: image120, description: "Description for Raw" },
+    raw_gold_block: {
+      image: image120,
+      description: "nine gold copper will yield one raw gold block",
+    },
     raw_iron_block: {
       image: image53,
-      description: "Description for Raw Iron Block",
+      description: "nine iron copper will yield one raw iron block",
     },
     red_nether_brick: {
       image: image121,
-      description: "Description for Red Nether Brick",
+      description:
+        "two red dye and two nether bricks will yield one red nether brick block",
     },
     red_sandstone: {
       image: image122,
-      description: "Description for Red Sandstone",
+      description: "four red sand will yield one redstone",
     },
-    sandstone: { image: image54, description: "Description for Sandstone" },
+    sandstone: {
+      image: image54,
+      description: "four sand will yield one sandstone",
+    },
     scaffolding: {
       image: image205,
-      description: "Description for Concrete Powder",
+      description: "six bamboo and one string will yield six scaffolding",
     },
-    shears: { image: image123, description: "Description for Shears" },
-    shield: { image: image56, description: "Description for Shield" },
-    shovel: { image: image57, description: "Description for Shovel" },
-    shulker_box: { image: image58, description: "Description for Shulker Box" },
-    sign: { image: image59, description: "Description for Sign" },
-    slab: { image: image60, description: "Description for Slab" },
-    slime_block: { image: image61, description: "Description for Slime Block" },
-    smoker: { image: image124, description: "Description for Smoker" },
-    spyglass: { image: image62, description: "Description for Spyglass" },
+    shears: {
+      image: image123,
+      description: "two iron ingots will yield one pair of shears",
+    },
+    shield: {
+      image: image56,
+      description: "six wood planks and one iron ingot will yield one shield",
+    },
+    shovel: {
+      image: image57,
+      description:
+        "one cobblestone and two sticks will yield one shovel (interchangeable with wood planks, gold, iron, or diamond)",
+    },
+    shulker_box: {
+      image: image58,
+      description:
+        "two shulker shells and one chest will yield one shulker box",
+    },
+    sign: {
+      image: image59,
+      description:
+        "six planks (any set of the same kind) will yield three signs of that kind (wood options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, and warped)",
+    },
+    slab: {
+      image: image60,
+      description:
+        "three cobblestone will yield six cobblestone slabs (slab options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, warped, bamboo, bamboo mosaic, stone, smooth stone, mossy cobblestone, stone brick, mossy stone brick, sandstone, cut sandstone, smooth sandstone, red sandstone, cut red sandstone, smooth red sandstone, granite, polished granite, diorite, polished diorite, andesite, polished andesite, brick, nether brick, red nether brick, end stone, quartz, smooth quartz, purpur, prismarine, prismarine brick, dark prismarine, blackstone, polished blackstone, polished blackstone brick, cut copper, exposed cut copper, weather cut copper, oxidized cut copper, waxed cut copper, waxed exposed cut copper, waxed weather cut copper, waxed oxidized cut copper, cobbled deepslate, polished deepslate, deepslate tile, deepslate brick, mud brick)",
+    },
+    slime_block: {
+      image: image61,
+      description: "nine slimeballs will yield one slime block",
+    },
+    smoker: {
+      image: image124,
+      description:
+        "four wood logs (any kind and combination) and one furnace will yield one smoker",
+    },
+    spyglass: {
+      image: image62,
+      description:
+        "one amethyst shard and two copper ingots will yield one spyglass",
+    },
     stained_glass: {
       image: image63,
-      description: "Description for Stained Glass",
+      description:
+        "eight glass and one dye (any color) will yield eight stained glass of that color (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
     },
-    stair: { image: image64, description: "Description for Stair" },
-    stick: { image: image65, description: "Description for Stick" },
-    stone_brick: { image: image66, description: "Description for Stone Brick" },
+    stair: {
+      image: image64,
+      description:
+        "six planks (any set of the same kind) will yield four stairs of that color (slab options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, warped, bamboo, bamboo mosaic, stone, smooth stone, mossy cobblestone, stone brick, mossy stone brick, sandstone, cut sandstone, smooth sandstone, red sandstone, cut red sandstone, smooth red sandstone, granite, polished granite, diorite, polished diorite, andesite, polished andesite, brick, nether brick, red nether brick, end stone, quartz, smooth quartz, purpur, prismarine, prismarine brick, dark prismarine, blackstone, polished blackstone, polished blackstone brick, cut copper, exposed cut copper, weather cut copper, oxidized cut copper, waxed cut copper, waxed exposed cut copper, waxed weather cut copper, waxed oxidized cut copper, cobbled deepslate, polished deepslate, deepslate tile, deepslate brick, mud brick)",
+    },
+    stick: {
+      image: image65,
+      description:
+        "two planks (any kind and combination) will yield four sticks",
+    },
+    stone_brick: {
+      image: image66,
+      description: "four stone will yield four stone bricks",
+    },
     stripped_wood_block: {
       image: image125,
-      description: "Description for Stripped Wood Block",
+      description:
+        "four stripped wood logs (any set of the same kind) will yield three stripped wood blocks (log options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, warped, bamboo)",
     },
-    sword: { image: image67, description: "Description for Sword" },
+    sword: {
+      image: image67,
+      description:
+        "two cobblestone and one stick will yield one sword (cobblestone is interchangeable with wood planks, gold, iron, or diamond)",
+    },
     terracotta: {
       image: image206,
-      description: "Description for Concrete Powder",
+      description:
+        "eight terracotta and one dye (any color) will yield eight terracotta of that color (color options: white, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, pink, light gray, gray, brown, and black)",
     },
-    tnt: { image: image68, description: "Description for TNT" },
-    torch: { image: image69, description: "Description for Torch" },
-    trapdoor: { image: image70, description: "Description for Trapdoor" },
+    tnt: {
+      image: image68,
+      description: "five gravel and four sand will yield one tnt",
+    },
+    torch: {
+      image: image69,
+      description:
+        "one coal (or charcoal) and one stick will yield four torches",
+    },
+    trapdoor: {
+      image: image70,
+      description:
+        "six planks will yield two trapdoors (trapdoor options: spruce, birch, acacia, oak, jungle, dark oak, mangrove, cherry, crimson, warped, bamboo, and iron)",
+    },
     waxed_cut_copper_block: {
       image: image127,
-      description: "Description for Waxed Cut Copper Block",
+      description:
+        "four waxed copper blocks will yield four waxed cut copper blocks",
     },
     waxed_copper_block: {
       image: image71,
-      description: "Description for Waxed Copper Block",
+      description:
+        "one copper block and one wax will yield one waxed copper block",
     },
     waxed_exposed_copper_block: {
       image: image128,
-      description: "Description for Waxed Exposed Copper Block",
+      description:
+        "one exposed copper block and one wax will yield one waxed exposed copper block",
     },
     waxed_exposed_cut_copper_block: {
       image: image129,
-      description: "Description for Waxed Exposed Cut Copper Block",
+      description:
+        "one exposed cut copper block and one wax will yield one waxed exposed cut copper block",
     },
     waxed_oxidized_copper_block: {
       image: image130,
-      description: "Description for Waxed Oxidized Copper Block",
+      description:
+        "one oxidized copper block and one wax will yield one waxed oxidized copper block",
     },
     waxed_oxidized_cut_copper_block: {
       image: image131,
-      description: "Description for Waxed Oxidized Cut Copper Block",
+      description:
+        "one oxidized cut copper block and one wax will yield one waxed oxidized cut copper block",
     },
     waxed_weathered_copper_block: {
       image: image132,
-      description: "Description for Waxed Weathered Copper Block",
+      description:
+        "one weathered copper block and one wax will yield one waxed weathered copper",
     },
     waxed_weathered_cut_copper_block: {
       image: image133,
-      description: "Description for Waxed Weathered Cut Copper Block",
+      description:
+        "four waxed weathered copper will yield four waxed weathered cut copper blocks",
     },
     weathered_cut_copper_block: {
       image: image134,
-      description: "Description for Weathered Cut Copper Block",
+      description:
+        "four weathered copper will yield four weathered cut copper blocks",
     },
-    wood: { image: image72, description: "Description for Wood" },
-    wool: { image: image73, description: "Description for Wool" },
+    wood: {
+      image: image72,
+      description:
+        "four wood logs (any set of the same kind) will yield three wood blocks of that kind",
+    },
+    wool: {
+      image: image73,
+      description: "four string will yield one white wool",
+    },
   };
   const headerStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -522,14 +801,56 @@ export const RecipeLookup = () => {
         const imageSrc = recipeImages[key].image;
 
         const imageElement = (
-          <div key={key}>
-            <p>{imageDescription}</p>
-            <div>RECIPE: {recipeImages[key].description}</div>
-            <img
-              src={imageSrc}
-              alt={key}
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
+          <div
+            key={key}
+            style={{
+              display: "grid",
+              gridTemplateRows: "auto 1fr auto",
+              textAlign: "center",
+              margin: "20px",
+            }}
+          >
+            <div style={{ maxWidth: "100%", position: "relative" }}>
+              <img
+                src={imageSrc}
+                alt={key}
+                style={{ maxWidth: "100%", height: "auto", maxHeight: "300px" }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "0",
+                  left: "0",
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  color: "white",
+                  padding: "5px",
+                  width: "98.5%",
+                  overflowWrap: "break-word",
+                }}
+              >
+                <p>{imageDescription}</p>
+              </div>
+            </div>
+            <div
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+                color: "white",
+                padding: "5px",
+                overflowWrap: "break-word",
+              }}
+            >
+              <p>RECIPE: {recipeImages[key].description}</p>
+            </div>
+            <div
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+                color: "white",
+                padding: "5px",
+                overflowWrap: "break-word",
+              }}
+            >
+              <p>{imageDescription}</p>
+            </div>
           </div>
         );
 
@@ -597,7 +918,15 @@ export const RecipeLookup = () => {
           placeholder="Enter Item for Recipe"
         />
       </div>
-      <div>{getImageElements()}</div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
+          gap: "20px",
+        }}
+      >
+        {getImageElements()}
+      </div>
       <FooterPage />
     </div>
   );
