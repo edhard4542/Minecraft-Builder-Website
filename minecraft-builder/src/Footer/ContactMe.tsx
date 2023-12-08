@@ -3,6 +3,7 @@ import Navigation from "../Navigation/Navigation";
 import { TextField, Button, Typography } from "@mui/material";
 import { Box } from "@mui/material";
 import backgroundImage from "../assets/minecraft_mountains_trees.jpg";
+import FooterPage from "../Footer/FooterPage";
 
 
 export const ContactMe: React.FC = () => {
@@ -97,10 +98,12 @@ export const ContactMe: React.FC = () => {
         </form>
       ) : (
         <Typography variant="body1" align="center" gutterBottom>
-          Thank you for messaging me! I will contact you shortly! Have a nice
-          day!
+          Thank you for messaging me, I will contact you shortly! Have a nice
+          day! :)
         </Typography>
       )}
+      <br></br>
+      <FooterPage />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import image2 from "../assets/zestyandbaked.jpg";
 import image1 from "../assets/me.jpg.jpg";
 import { Box } from "@mui/material";
 import backgroundImage from "../assets/minecraft_mountains_trees.jpg";
+import FooterPage from "../Footer/FooterPage";
 
 
 const AboutMe: React.FC = () => {
@@ -77,7 +78,6 @@ const AboutMe: React.FC = () => {
         </div>
         <div>
           <div style={{ textAlign: "center" }} className="about-section">
-            
             <img
               src={image1}
               alt="Description of the image"
@@ -130,6 +130,22 @@ const AboutMe: React.FC = () => {
           </div>
         </div>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+    
+      <FooterPage />
     </div>
   );
 };

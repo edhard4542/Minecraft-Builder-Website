@@ -61,14 +61,14 @@ export const MaterialCalculator: FC = () => {
     if (
       isNaN(inputValueParsed) || 
       inputValueParsed < 0 || 
-      inputValueParsed < conversionDetails.inputAmount // input is less than minimum input value  needed
+      inputValueParsed < conversionDetails.inputAmount 
     ) {
-      // Invalid input, you can display an error message or take other actions
+
       console.error("Invalid input");
       setInputValidationMessage("Please enter the minimum amount");
       setUserInput(null);
     } else {
-      // Valid input, you can handle it accordingly
+      
       console.log("Valid input:", inputValueParsed);
       setInputValidationMessage("");
       setUserInput(inputValueParsed);
@@ -90,7 +90,7 @@ export const MaterialCalculator: FC = () => {
       const stackRemainder = totalOutput % 64;
 
       if (stackRemainder > 0) {
-        return `${stacks} stacks and ${stackRemainder} ${conversionDetails.output} with ${remainder} ${conversionDetails.input} remaining`;
+        return `${stacks} stack(s) and ${stackRemainder} ${conversionDetails.output} with ${remainder} ${conversionDetails.input} remaining`;
       } else {
         return `${stacks} stacks`;
       }
