@@ -805,7 +805,7 @@ export const RecipeLookup = () => {
             key={key}
             style={{
               display: "grid",
-              gridTemplateRows: "auto 1fr auto",
+              gridTemplateRows: "auto 1fr",
               textAlign: "center",
               margin: "20px",
             }}
@@ -814,7 +814,7 @@ export const RecipeLookup = () => {
               <img
                 src={imageSrc}
                 alt={key}
-                style={{ maxWidth: "100%", height: "auto", maxHeight: "300px" }}
+                style={{ maxWidth: "100%", height: "auto" }}
               />
               <div
                 style={{
@@ -824,7 +824,7 @@ export const RecipeLookup = () => {
                   backgroundColor: "rgba(0, 0, 0, 0.7)",
                   color: "white",
                   padding: "5px",
-                  width: "98.5%",
+                  width: "98.3%",
                   overflowWrap: "break-word",
                 }}
               >
@@ -840,16 +840,6 @@ export const RecipeLookup = () => {
               }}
             >
               <p>RECIPE: {recipeImages[key].description}</p>
-            </div>
-            <div
-              style={{
-                backgroundColor: "rgba(0, 0, 0, 0.7)",
-                color: "white",
-                padding: "5px",
-                overflowWrap: "break-word",
-              }}
-            >
-              <p>{imageDescription}</p>
             </div>
           </div>
         );
