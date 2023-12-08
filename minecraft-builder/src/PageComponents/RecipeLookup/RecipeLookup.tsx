@@ -826,6 +826,8 @@ export const RecipeLookup = () => {
                   padding: "5px",
                   width: "98.3%",
                   overflowWrap: "break-word",
+                  fontWeight: "bold",
+                  fontSize: "20px"
                 }}
               >
                 <p>{imageDescription}</p>
@@ -892,11 +894,13 @@ export const RecipeLookup = () => {
       </div>
 
       <div>
-        <p>
-          On this tool, you will be able to be see the crafting recipes for many
-          items in Minecraft! The page will allow you to select an item and it
-          will display a picture and description to show you the items needed
-          for the desired item!
+        <p style={{ marginRight: "15px", marginLeft: "15px" }}>
+          On this tool, you will be able to see the crafting recipes for an
+          abundance of items in Minecraft! The page will display all the
+          available crafting recipes so you can scroll through and observe those
+          in alphabetical order. However, it will also allow you to search for
+          an item. When you do this, it will display the picture and description
+          to show you the materials needed for the desired item!
         </p>
       </div>
 

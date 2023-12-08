@@ -142,6 +142,19 @@ export const MaterialCalculator: FC = () => {
             marginTop: "20px",
           }}
         />
+        <p style={{ marginRight: "15px", marginLeft: "15px" }}>
+          This tool is one where you can calculate how many items you will
+          obtain from a certain conversion, depending on the amount of an item
+          you have. You can select any option from the drop down list. For
+          example, maybe you want to see how many ladders you can make with a
+          certain amount of sticks. Once you select your desired conversion, the
+          tool will prompt you to enter the amount you currently have! Once you
+          submit this response, the tool will calculate the amount of an item
+          you can make. It will show this amount individually unless it goes
+          over a stack (64 items), then it will respond with something like 1
+          stack and 32 items. Lastly, it will also let you know how many
+          starting items you’ll have remaining if it is not an even conversion.
+        </p>
       </div>
       <br></br>
       <div>
