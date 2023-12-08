@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import image2 from "../src/assets/chestroom.jpg";

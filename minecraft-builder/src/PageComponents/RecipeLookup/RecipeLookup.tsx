@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ChangeEvent, useState } from "react";
 import { Box } from "@mui/material";
 import FooterPage from "../../Footer/FooterPage";
@@ -133,7 +134,7 @@ import image135 from "../../assets/recipies/woolcolors.jpg";
 import image1 from "../../assets/villageHouse.jpg";
 import image37 from "../../assets/recipies/carpet.jpg";
 import image200 from "../../assets/recipies/copperBlock.jpg";
-import image201 from "../../assets/recipies/hangingSign.jpg";
+import image201 from "../../assets/recipies/hangingsign.jpg";
 import image202 from "../../assets/recipies/hoe.jpg";
 import image204 from "../../assets/recipies/painting.jpg";
 import image205 from "../../assets/recipies/scaffolding.jpg";
